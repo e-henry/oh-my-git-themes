@@ -9,8 +9,8 @@
 : ${omg_has_deletions_symbol:=$fa_minus_circle}
 : ${omg_has_cached_deletions_symbol:=$fa_times_circle}
 : ${omg_has_modifications_symbol:=$fa_pencil}
-: ${omg_has_cached_modifications_symbol:=$fa_edit}
-: ${omg_ready_to_commit_symbol:=$fa_check_square_o}
+: ${omg_has_cached_modifications_symbol:=$fa_plus_square}
+: ${omg_ready_to_commit_symbol:=$fa_check_square}
 : ${omg_is_on_a_tag_symbol:=$fa_tag}
 : ${omg_needs_to_merge_symbol:=$oct_git_merge}
 : ${omg_detached_symbol:=$fa_chain_broken}
