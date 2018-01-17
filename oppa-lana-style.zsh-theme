@@ -1,24 +1,27 @@
+# Be sure to install icons-in-terminal font and source 
+# icons_bash.sh before loading the antigen
+
 : ${omg_ungit_prompt:=$PS1}
 : ${omg_second_line:="%~ • "}
-: ${omg_is_a_git_repo_symbol:=''}
-: ${omg_has_untracked_files_symbol:=''}        #                ?    
-: ${omg_has_adds_symbol:=''}
-: ${omg_has_deletions_symbol:=''}
-: ${omg_has_cached_deletions_symbol:=''}
-: ${omg_has_modifications_symbol:=''}
-: ${omg_has_cached_modifications_symbol:=''}
-: ${omg_ready_to_commit_symbol:=''}            #   →
-: ${omg_is_on_a_tag_symbol:=''}                #   
-: ${omg_needs_to_merge_symbol:='ᄉ'}
-: ${omg_detached_symbol:=''}
-: ${omg_can_fast_forward_symbol:=''}
-: ${omg_has_diverged_symbol:=''}               #   
-: ${omg_not_tracked_branch_symbol:=''}
-: ${omg_rebase_tracking_branch_symbol:=''}     #   
-: ${omg_merge_tracking_branch_symbol:=''}      #  
-: ${omg_should_push_symbol:=''}                #    
-: ${omg_has_stashes_symbol:=''}
-: ${omg_has_action_in_progress_symbol:=''}     #                  
+: ${omg_is_a_git_repo_symbol:=$oct_octoface}
+: ${omg_has_untracked_files_symbol:=$fa_recycle}
+: ${omg_has_adds_symbol:=$fa_plus_circle}
+: ${omg_has_deletions_symbol:=$fa_minus_circle}
+: ${omg_has_cached_deletions_symbol:=$fa_times_circle}
+: ${omg_has_modifications_symbol:=$fa_pencil}
+: ${omg_has_cached_modifications_symbol:=$fa_edit}
+: ${omg_ready_to_commit_symbol:=$fa_check_square_o}
+: ${omg_is_on_a_tag_symbol:=$fa_tag}
+: ${omg_needs_to_merge_symbol:=$oct_git_merge}
+: ${omg_detached_symbol:=$fa_chain_broken}
+: ${omg_can_fast_forward_symbol:=$md_fast_forward}
+: ${omg_has_diverged_symbol:=$oct_repo_forked} 
+: ${omg_not_tracked_branch_symbol:=$fa_laptop}
+: ${omg_rebase_tracking_branch_symbol:=$md_import_export} 
+: ${omg_merge_tracking_branch_symbol:=$oct_git_branch}   
+: ${omg_should_push_symbol:=$fa_cloud_upload}           
+: ${omg_has_stashes_symbol:=$oct_star}
+: ${omg_has_action_in_progress_symbol:=$fa_exclamation_triangle} 
 
 autoload -U colors && colors
 
