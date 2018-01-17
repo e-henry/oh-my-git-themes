@@ -5,11 +5,11 @@
 : ${omg_second_line:="%~ • "}
 : ${omg_is_a_git_repo_symbol:=$oct_octoface}
 : ${omg_has_untracked_files_symbol:=$fa_recycle}
-: ${omg_has_adds_symbol:=$fa_plus_circle}
-: ${omg_has_deletions_symbol:=$fa_minus_circle}
-: ${omg_has_cached_deletions_symbol:=$fa_times_circle}
+: ${omg_has_adds_symbol:=$fa_plus}
+: ${omg_has_deletions_symbol:=$fa_minus}
+: ${omg_has_cached_deletions_symbol:=$fa_minus_circle}
 : ${omg_has_modifications_symbol:=$fa_pencil}
-: ${omg_has_cached_modifications_symbol:=$fa_plus_square}
+: ${omg_has_cached_modifications_symbol:=$fa_plus_circle}
 : ${omg_ready_to_commit_symbol:=$fa_check_square}
 : ${omg_is_on_a_tag_symbol:=$fa_tag}
 : ${omg_needs_to_merge_symbol:=$oct_git_merge}
@@ -139,7 +139,7 @@ function custom_build_prompt {
                 prompt+=$(enrich_append true "(${current_branch} ${type_of_upstream} ${upstream//\/$current_branch/})" "${black_on_yellow}")
             fi
         fi
-        prompt+=$(enrich_append ${is_on_a_tag} "${omg_is_on_a_tag_symbol} ${tag_at_current_commit}" "${black_on_yellow}")
+        prompt+=$(enrich_append ${is_on_a_tag} "${omg_is_on_a_tag_symbol} ${tag_at_current_commit}" "${white_on_yellow}")
         prompt+="%k%F{yellow}%k%f
 ${omg_second_line}"
     else
