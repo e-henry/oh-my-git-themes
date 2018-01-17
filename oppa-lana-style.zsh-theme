@@ -68,12 +68,15 @@ function custom_build_prompt {
 
 
     local black_on_white="%K{white}%F{black}"
+    local black_on_yellow="%K{yellow}%F{black}"
     local yellow_on_white="%K{white}%F{yellow}"
     local red_on_white="%K{white}%F{red}"
     local red_on_black="%K{black}%F{red}"
     local black_on_red="%K{red}%F{black}"
     local white_on_red="%K{red}%F{white}"
     local yellow_on_red="%K{red}%F{yellow}"
+    local red_on_yellow="%K{yellow}%F{red}"
+    local green_on_yellow="%K{yellow}%F{green}"
  
     # Flags
     local omg_default_color_on="${black_on_white}"
@@ -103,13 +106,13 @@ function custom_build_prompt {
 
         # where
 
-        prompt="${prompt} ${white_on_red} ${black_on_red}"
+        prompt="${prompt} ${black_on_yellow} ${black_on_yellow}"
         if [[ $detached == true ]]; then
-            prompt+=$(enrich_append $detached $omg_detached_symbol "${white_on_red}")
-            prompt+=$(enrich_append $detached "(${current_commit_hash:0:7})" "${black_on_red}")
+            prompt+=$(enrich_append $detached $omg_detached_symbol "${black_on_yellow}")
+            prompt+=$(enrich_append $detached "(${current_commit_hash:0:7})" "${black_on_yellow}")
         else            
             if [[ $has_upstream == false ]]; then
-                prompt+=$(enrich_append true "-- ${omg_not_tracked_branch_symbol}  --  (${current_branch})" "${black_on_red}")
+                prompt+=$(enrich_append true "-- ${omg_not_tracked_branch_symbol}  --  (${current_branch})" "${black_on_yellow}")
             else
                 if [[ $will_rebase == true ]]; then
                     local type_of_upstream=$omg_rebase_tracking_branch_symbol
@@ -118,23 +121,23 @@ function custom_build_prompt {
                 fi
 
                 if [[ $has_diverged == true ]]; then
-                    prompt+=$(enrich_append true "-${commits_behind} ${omg_has_diverged_symbol} +${commits_ahead}" "${white_on_red}")
+                    prompt+=$(enrich_append true "-${commits_behind} ${omg_has_diverged_symbol} +${commits_ahead}" "${black_on_yellow}")
                 else
                     if [[ $commits_behind -gt 0 ]]; then
-                        prompt+=$(enrich_append true "-${commits_behind} %F{white}${omg_can_fast_forward_symbol}%F{black} --" "${black_on_red}")
+                        prompt+=$(enrich_append true "-${commits_behind} %F{white}${omg_can_fast_forward_symbol}%F{black} --" "${black_on_yellow}")
                     fi
                     if [[ $commits_ahead -gt 0 ]]; then
-                        prompt+=$(enrich_append true "-- %F{white}${omg_should_push_symbol}%F{black}  +${commits_ahead}" "${black_on_red}")
+                        prompt+=$(enrich_append true "-- %F{white}${omg_should_push_symbol}%F{black}  +${commits_ahead}" "${black_on_yellow}")
                     fi
                     if [[ $commits_ahead == 0 && $commits_behind == 0 ]]; then
-                         prompt+=$(enrich_append true " --   -- " "${black_on_red}")
+                         prompt+=$(enrich_append true " --   -- " "${black_on_yellow}")
                     fi
                     
                 fi
-                prompt+=$(enrich_append true "(${current_branch} ${type_of_upstream} ${upstream//\/$current_branch/})" "${black_on_red}")
+                prompt+=$(enrich_append true "(${current_branch} ${type_of_upstream} ${upstream//\/$current_branch/})" "${black_on_yellow}")
             fi
         fi
-        prompt+=$(enrich_append ${is_on_a_tag} "${omg_is_on_a_tag_symbol} ${tag_at_current_commit}" "${black_on_red}")
+        prompt+=$(enrich_append ${is_on_a_tag} "${omg_is_on_a_tag_symbol} ${tag_at_current_commit}" "${black_on_yellow}")
         prompt+="%k%F{red}%k%f
 ${omg_second_line}"
     else
